@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './tailwind.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import theme, { SiteTheme } from './Theme';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <theme.Provider value={(localStorage.getItem('theme') as SiteTheme) || 'light'}>
+    <App />
+  </theme.Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
