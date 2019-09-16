@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface NavLinkProps {
   href: string;
@@ -7,12 +8,12 @@ interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = props => {
   const { children, href } = props;
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-2"
     >
       {children}
-    </a>
+    </Link>
   );
 };
 
