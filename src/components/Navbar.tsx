@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import themeContext, { colors } from '../Theme';
-import NavLink from './NavLink';
 
 interface NavbarProps {
   title: string;
 }
 
 const Navbar: React.FC<NavbarProps> = props => {
+  const [open, setOpen] = useState(false);
   const theme = useContext(themeContext);
   const { title, children } = props;
   return (
@@ -18,8 +18,11 @@ const Navbar: React.FC<NavbarProps> = props => {
             <Link to="/">{title}</Link>
           </span>
         </div>
-        <div className="block lg:hidden">
-          <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <div className="block sm:hidden">
+          <button
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+            onClick={() => setOpen(t => !t)}
+          >
             <svg
               className="fill-current h-3 w-3"
               viewBox="0 0 20 20"
@@ -30,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = props => {
             </svg>
           </button>
         </div>
-        <div style={{ margin: '0px 500px' }}>
+        <div className={`sm:inline md:mx-10 lg:mx-80 ${open ? '' : 'hidden'}`}>
           <div className="text-sm lg:flex-grow">{children}</div>
         </div>
       </nav>
