@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 import Tutorial from '../components/Tutorial';
+import CodeImg from '../assets/code.jpg';
 
 const IndexPage = () => {
   return (
@@ -22,7 +23,13 @@ const IndexPage = () => {
           console.log('Clicked!');
         }}
       />
-      <Tutorial />
+      <Tutorial
+        img={CodeImg}
+        title="Git Tutorial"
+        description="Quick tutorial of how to use Git."
+        date="10.9.2019 13:12"
+        time="8:00"
+      />
     </>
   );
 };
