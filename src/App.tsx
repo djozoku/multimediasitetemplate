@@ -6,14 +6,15 @@ import TutorialsPage from './pages/tutorials';
 import Container from './components/Container';
 import Navbar from './components/Navbar';
 import NavLink from './components/NavLink';
+import AboutPage from './pages/about';
 
 const App: React.FC = () => {
   const theme = useContext(themeContext);
   return (
     <BrowserRouter>
-      <Navbar title="Multimediaprojekti">
-        <NavLink href="#">Tutorials</NavLink>
-        <NavLink href="#">About</NavLink>
+      <Navbar title="Ozoku's Tutorials">
+        <NavLink href="/tutorials">Tutorials</NavLink>
+        <NavLink href="/about">About</NavLink>
       </Navbar>
       <div
         style={{
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/tutorials" exact component={TutorialsPage} />
+            <Route path="/about" exact component={AboutPage} />
           </Switch>
         </Container>
       </div>
