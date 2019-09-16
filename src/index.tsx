@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './tailwind.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import theme, { SiteTheme } from './Theme';
+import { ThemeProvider } from './Theme';
+
+document.addEventListener('resize', e => {});
 
 ReactDOM.render(
-  <theme.Provider value={(localStorage.getItem('theme') as SiteTheme) || 'light'}>
+  <ThemeProvider>
     <App />
-  </theme.Provider>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 

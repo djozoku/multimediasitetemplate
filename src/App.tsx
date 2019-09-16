@@ -9,7 +9,7 @@ import NavLink from './components/NavLink';
 import AboutPage from './pages/about';
 
 const App: React.FC = () => {
-  const theme = useContext(themeContext);
+  const { theme } = useContext(themeContext);
   return (
     <BrowserRouter>
       <Navbar title="Ozoku's Tutorials">
