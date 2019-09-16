@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import themeContext, { colors } from '../Theme';
 import NavLink from './NavLink';
 
@@ -11,9 +12,11 @@ const Navbar: React.FC<NavbarProps> = props => {
   const { title, children } = props;
   return (
     <>
-      <nav className="flex items-center justify-between flex-wrap p-4 bg-blue-600">
-        <div className="flex items-center flex-shrink-0 text-white" style={{ margin: '0px 500px' }}>
-          <span className="font-semibold text-xl tracking-tight">{title}</span>
+      <nav className={`flex items-center justify-between flex-wrap p-4 bg-${'blue-600'}`}>
+        <div className="flex items-center flex-shrink-0 text-white sm:mx-10 md:mx-80">
+          <span className="font-semibold text-xl tracking-tight">
+            <Link to="/">{title}</Link>
+          </span>
         </div>
         <div className="block lg:hidden">
           <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
